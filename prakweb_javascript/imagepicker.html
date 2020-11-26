@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+    <script>
+		function pilih(){
+			let list_style = document.getElementById('style');
+			let idx = list_style.selectedIndex;
+			let area_gambar = document.getElementById ("gambar");
+			area_gambar.src = "images/" + list_style[idx].value + ".jpg";
+			alert("Menu yang kamu pilih adalah " + list_style[idx].value + ".jpg");
+		}
+    </script>
+    <style>
+    .img{
+        text-align: center;
+        background-color: rgba(136, 43, 27, 0.7);
+        width: 600px;
+        margin:220px auto;
+        padding: 15px;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="img">
+		<h1><b>Choose Your Coffee</b></h1>
+		<hr>
+		<form id="frm1">
+            Pilihlah Menu  <select id="style"  onchange="pilih()">
+                <option value="ruangkopi"> Pilih menu</option>
+				<option value="kopijoss"> Kopi Joss</option>
+				<option value="kopitalua"> Kopi Talua </option>
+                <option value="bittercoffe"> Bitter Coffee </option>
+			</select>
+		</form>
+		<br></br>
+		<img src="images/ruangkopi.jpg" alt="ruangkopi" id="gambar" >
+	</div>
+</body>
+</html>

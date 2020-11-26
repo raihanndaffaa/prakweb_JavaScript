@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Chat</title>
+    <script src="logout.js"></script>
+</head>
+<body>
+  <style type="text/css">
+    .btn-chat {
+      border:none;
+      padding:10px;
+      text-transform: uppercase;
+      font-size: 20px;
+      position: absolute;
+      bottom: 2%;
+      right: 2%;
+      width: 20%;
+      }
+    #chat {
+      border: 6px solid white;
+      width:459px;
+      background-color:#f1f1f1;
+      margin:auto;
+      border-radius: 10px;
+      margin-left:300px;
+      }
+    #chatbox{
+      display:none;
+      border: 3px solid #f1f1f1;
+      position: absolute;
+      bottom: 2%;
+      right: 2%;
+      z-index: 9;
+    }
+    .chat{
+      font-size: large;
+      background-color: rgba(220, 20, 60, 1);
+    }
+    .form-container{
+      max-width: 300px;
+      padding: 10px;
+      background: white;
+    }
+    .form-container textarea{
+      width: 100%;
+      min-height:200px;
+      border: none;
+      resize: none;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      background: #f1f1f1;
+      font-size: 15px;
+    }
+    .form-container textarea:focus{
+      background: #ddd;
+      outline: none;
+    }
+    .btn-send, .btn-close{
+      padding:10px;
+      font-size: 18px;
+      margin-bottom: 10px;
+      border: none;
+      width: 100%;
+      opacity: 0.9;
+    }
+    .btn-send,.btn-close,.btn-chat:hover{
+      opacity: 1;
+    }
+    h2{
+      background: blue;
+      color:white;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+    </style>
+
+  <div class="container">
+    <button class="btn btn-info btn-chat" type="button" onclick="openChat()">Chat</button>
+    <form method="request">
+      <input type="submit" onClick="return logout()" value="LOGOUT">
+    </form>
+    <div class="chatbox" id="chatbox">
+      <h2>Message</h2>
+      <form class="form-container">
+        <textarea class="input" type="text" placeholder="Type Text.." name="msg" required=""></textarea>
+        <button type="button" class="btn btn-info btn-lg btn-send" onclick="aksi()">Send</button>
+        <button type="reset" class="btn btn-info btn-lg btn-send" >Clear</button>
+        <button type="button" class="btn btn-danger btn-lg btn-close" onclick="closeChat()">Close</button>
+      </form>
+    </div>
+    <div class="chat" id="chat" style="overflow-y:scroll; height:450px; ">
+    </div>
+
+  </div>
+    <script type="text/javascript">
+        function openChat() {
+          document.getElementById('chatbox').style.display='block';
+          $('.btn-chat').hide();
+        }
+        function closeChat() {
+          document.getElementById('chatbox').style.display='none';
+          $('.btn-chat').show();
+        }
+        let resultchat = document.querySelector(".chat");
+      const inputchat = document.querySelector(".input");
+      const kirimchat = document.querySelector(".kirim");
+      const tampilchat = document.querySelector(".chat");
+        function aksi(){
+          resultchat.innerHTML = resultchat.innerHTML + "pesan: " + inputchat.value + "<br>"; inputchat.value="";
+        }
+      </script>
+</body>
+</html>
